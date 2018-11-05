@@ -6,13 +6,11 @@ require 'net/ssh'
 require 'io/console'
 
 token = ENV['MIGHTYBOX_TOKEN_DO']
-sshID = ENV['MIGHTYBOX_SSH_DO']
-imageID = ENV['MIGHTYBOX_IMAGE_DO']
+ssh_keys = ENV['MIGHTYBOX_SSH_DO']
+image_id = ENV['MIGHTYBOX_IMAGE_DO']
 region = 'nyc1'
-image_id = '#{ imageID }'
 droplet_size = 's-1vcpu-2gb'
 droplet_tags = ['wordpress', 'mightybox']
-ssh_keys = ['#{ sshID }']
 
 puts "Enter site URL:"
 sitename = gets.chomp
@@ -106,7 +104,7 @@ puts "User:"
 user = gets.chomp
 puts ""
 
-puts "Database password for 'wordpress_master'"
+puts "Database password for 'wordpress'@'localhost'"
 dbPass = STDIN.noecho(&:gets).chomp
 puts ""
 
@@ -114,6 +112,6 @@ puts "Waiting for server..."
 sleep(5)
 
 Net::SSH.start(wave, user) do |ssh|
-  setup = ssh.exec!("cd /var/www/setup && sudo bash setup.sh #{ sshClone } #{ wave } #{ dbPass }")
+  setup = ssh.exec!("cd /var/www/setup/master && sudo bash setup.sh #{ sshClone } #{ wave } #{ dbPass }")
   puts setup
 end

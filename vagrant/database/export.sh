@@ -1,0 +1,1 @@
+sudo -u vagrant -H sh -c 'cd /var/www/vagrant/database; wp db export wordpress_main.sql'

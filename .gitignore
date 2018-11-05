@@ -1,0 +1,32 @@
+# MacOS
+*.DS_store
+
+# Windows
+*.exe
+*.iso
+
+# Adobe
+*.ai
+*.psd
+
+# Microsoft Office
+*.doc
+*.docx
+*.ppt
+*.pptx
+
+# Media
+*.mp3
+
+# Archives
+*.zip
+*.7z
+
+# Local Files
+local/
+
+# Vagrant + WordPress
+.vagrant
+*.log
+html/wp-config.php
+*.box

@@ -1,0 +1,25 @@
+# Global parameter defaults
+path: /var/www/staging/html
+url:
+color: false
+
+# Subcommand defaults (e.g. `wp config create`)
+config create:
+    dbname: wordpress_staging
+    dbuser: staging
+    dbpass:
+    extra-php: |
+        define( 'WP_DEBUG', true );
+        define( 'WP_DEBUG_LOG', true );
+        define('FS_METHOD', 'direct');
+
+core install:
+    title:
+    admin_user: root
+    admin_password: root
+    admin_email: ashsaraga@gmail.com
+
+# '_' is a special value denoting configuration options for this wp-cli.yml
+# _:
+    # Merge subcommand defaults from the upstream config.yml, instead of overriding
+    # merge: true

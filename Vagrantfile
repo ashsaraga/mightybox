@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   require "pathname"
 
-  config.vm.box = "mightybox"
+  config.vm.box = "mightylady/mightybox"
   config.vm.network "private_network", ip: "192.168.44.44"
   config.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)"
   config.vm.network "forwarded_port", guest: 80, host: 8080
